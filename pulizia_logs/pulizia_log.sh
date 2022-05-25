@@ -14,8 +14,8 @@ df -h >> /root/log/log_$data
 echo '' >> /root/log/log_$data
 
 
-echo 'Dimensioni sottocartelle prima della pulizia:' >> /root/log/log_$data
-du -csh /app/ >> /root/log/log_$data
+echo 'Dimensioni 30 sottocartelle piu pesanti prima della pulizia:' >> /root/log/log_$data
+du -xhS | sort -h | tail -n30 >> /root/log/log_$data
 echo '' >> /root/log/log_$data
 
 echo '---------------------------------------------------------------------------------------' >> /root/log/log_$data
@@ -58,6 +58,10 @@ echo 'Spazio disponibile dopo la pulizia' >> /root/log/log_$data
 df -h >> /root/log/log_$data
 echo '' >> /root/log/log_$data
 
-echo 'Dimensioni sottocartelle dopo pulizia:' >> /root/log/log_$data
-du -csh /app/ >> /root/log/log_$data
+echo 'Dimensioni 30 sottocartelle piu pesanti dopo pulizia:' >> /root/log/log_$data
+du -xhS | sort -h | tail -n30 >> /root/log/log_$data
 echo '' >> /root/log/log_$data
+
+#Da aggiungere:
+## Togliere tutti i backup dalla cartella /app/ ad eccezione degli ultimi 2
+## Se è possibile avere in produzione avere le 30 cartelle più pesanti dalla cartella principale
