@@ -26,7 +26,8 @@ echo 'Compressione Replicate Logs' >> /root/log/log_$data
 
 echo '' >> /root/log/log_$data
 
-find /app/replicate_data/attunity/replicate/data/logs/* -mtime +30 -exec gzip -c *.log > /app/replicate_data/attunity/replicate/data/logs/replica_logs_$data.gz {} \; >> /root/log/log_$data 
+#find /app/replicate_data/attunity/replicate/data/logs/* -mtime +30 -exec gzip -c *.log > /app/replicate_data/attunity/replicate/data/logs/replica_logs_$data.gz {} \; >> /root/log/log_$data 
+find /app/replicate_data/attunity/replicate/data/logs/*.log -mtime +30 -exec gzip {} \; >> /root/log/log_$data 
 
 echo '' >> /root/log/log_$data
 
