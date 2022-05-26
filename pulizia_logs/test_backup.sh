@@ -3,7 +3,7 @@ backup_count=$(ls -ltr /home/emanuele.sausto/ | grep bkp_replicate_ | wc -l)
 
 if (($backup_count > 2))
     then
-        $backup_count_real=$((backup_count - 2))
+        backup_count_real=$((backup_count - 2))
         echo "Ci sono più di due cartelle"
         for (($backup_count_real > 0))
         do 
