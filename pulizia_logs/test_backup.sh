@@ -1,4 +1,5 @@
-backup_count=$(ls -ltr /app/replicate_data/ | grep bkp_replicate_ | wc -l)
+#backup_count=$(ls -ltr /app/replicate_data/ | grep bkp_replicate_ | wc -l)
+backup_count=$(ls -ltr /home/emanuele.sausto/ | grep bkp_replicate_ | wc -l)
 
 if (($backup_count > 2))
     then
