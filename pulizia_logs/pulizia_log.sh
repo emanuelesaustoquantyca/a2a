@@ -16,7 +16,7 @@ echo '' >> /root/log/log_$data
 
 
 echo 'Dimensioni 30 sottocartelle piu pesanti prima della pulizia:' >> /root/log/log_$data
-du -xhS / | sort -h | tail -n30 >> /root/log/log_$data
+du -xhS /app /opt /home | sort -h | tail -n30 >> /root/log/log_$data
 echo '' >> /root/log/log_$data
 
 echo '---------------------------------------------------------------------------------------' >> /root/log/log_$data
@@ -63,9 +63,9 @@ df -h >> /root/log/log_$data
 echo '' >> /root/log/log_$data
 
 echo 'Dimensioni 30 sottocartelle piu pesanti dopo pulizia:' >> /root/log/log_$data
-du -xhS / | sort -h | tail -n30 >> /root/log/log_$data
+du -xhS /app /opt /home | sort -h | tail -n30 >> /root/log/log_$data
 echo '' >> /root/log/log_$data
 
 #Da aggiungere:
-## Togliere tutti i backup dalla cartella /app/ ad eccezione degli ultimi 2
+## Togliere tutti i backup dalla cartella /app/ ad eccezione degli ultimi 2 > da fare a mano
 ## Se è possibile avere in produzione avere le 30 cartelle più pesanti dalla cartella principale
