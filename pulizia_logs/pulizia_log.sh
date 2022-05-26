@@ -4,6 +4,7 @@
 #!/bin/sh
 
 data=$(date +%d_%m_%Y)
+backup_count=$(ls -ltr /app/replicate_data/ | grep bkp_replicate_ | wc -l)
 
 date >> /root/log/log_$data
 
@@ -47,6 +48,27 @@ find /app/replicate_data/attunity/replicate/data/logs/* -mtime +60 -exec  rm -f 
 echo '' >> /root/log/log_$data
 
 echo 'Pulizia Replicate Logs Completata' >> /root/log/log_$data
+
+echo '' >> /root/log/log_$data
+
+echo '---------------------------------------------------------------------------------------' >> /root/log/log_$data
+
+echo '' >> /root/log/log_$data
+
+echo 'Pulizia Backup Folders' >> /root/log/log_$data
+
+echo '' >> /root/log/log_$data
+
+if (($backup_count > 2))
+    then
+        echo "Ci sono più di due cartelle"
+    else
+        echo "Ce ne sono 2 o meno"
+fi
+
+echo '' >> /root/log/log_$data
+
+echo 'Pulizia Backup Folders Completata' >> /root/log/log_$data
 
 echo '' >> /root/log/log_$data
 
