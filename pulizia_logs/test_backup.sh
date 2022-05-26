@@ -11,8 +11,9 @@ echo ""
 
 if (($backup_count > 2))
     then
-        $((backup_count - 2))
+        backup_count=$((backup_count - 2))
         echo "Ci sono più di due cartelle"
+        echo $backup_count
         for (($backup_count > 0))
         do 
             echo "Ci sono $backup_count cartelle"
