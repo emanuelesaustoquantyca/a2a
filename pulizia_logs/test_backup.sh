@@ -16,9 +16,10 @@ if (($backup_count > 2))
         for (($backup_count; $backup_count > 2; $backup_count))
         do 
             echo "Ci sono $backup_count cartelle"
-            deleted_folder = $(ls -ltr /home/emanuele.sausto/ | grep bkp_replicate_ | head -n 1)
+            deleted_folder=$(ls -ltr /home/emanuele.sausto/ | grep bkp_replicate_ | head -n 1)
             echo $deleted_folder
-            rm -r /home/emanuele.sausto/$deleted_folder
+            #rm -r /home/emanuele.sausto/$deleted_folder
+
             #(($backup_count_real--))    
         done
         echo $backup_count_real
